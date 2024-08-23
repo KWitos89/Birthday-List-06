@@ -1,0 +1,208 @@
+@import url("https://fonts.googleapis.com/css2?family=Happy+Monkey&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+p {
+  max-width: 75ch;
+  text-wrap: pretty; /* Prevents orphans on lines */
+}
+body {
+  background-color: rgb(234, 6, 185);
+  min-height: 100vh;
+  padding-inline: 2rem;
+  display: flex;
+  font-family: "Happy Monkey", system-ui;
+}
+.box {
+  border-radius: 10px;
+  box-shadow: 25px 30px 30px rgba(0, 0, 0, 0.6);
+  background-color: whitesmoke;
+  display: grid;
+  gap: 2rem;
+  margin-block: 3rem;
+  padding: 1.6rem;
+  width: 320px;
+}
+.box__wrpaper {
+  display: none;
+  opacity: 0;
+  margin-top: 1.5rem;
+  transition-property: display opcacity;
+  transition-duration: 1s;
+  transition-behavior: allow-discrete;
+}
+
+.show1 {
+  display: block;
+  opacity: 1;
+
+  @starting-style {
+    opacity: 1;
+  }
+}
+
+.box__btn {
+  background: rgb(251, 156, 42);
+  background: linear-gradient(
+    90deg,
+    rgba(251, 156, 42, 1) 0%,
+    rgba(192, 0, 255, 1) 100%
+  );
+  box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  color: whitesmoke;
+  font-weight: bold;
+  margin-inline: auto;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  transition: box-shadow 0.3s ease-in-out;
+  width: 60%;
+}
+.box__btn:hover {
+  box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.9);
+}
+.btn__send {
+  background: rgb(251, 156, 42);
+  background: linear-gradient(
+    90deg,
+    rgba(251, 156, 42, 1) 0%,
+    rgba(192, 0, 255, 1) 100%
+  );
+  border-radius: 15px;
+  color: whitesmoke;
+  font-weight: bold;
+  margin-inline: auto;
+  padding: 5px;
+  width: 30%;
+}
+.box__title {
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+ul {
+  display: grid;
+  gap: 1.5rem;
+}
+li {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+li:hover {
+  box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0.3rem;
+}
+li:hover .btn__msg {
+  visibility: visible;
+  transition-delay: 0.2s;
+}
+.active {
+  background-color: inherit;
+  display: grid;
+  row-gap: 0.5rem;
+  grid-template-rows: 1fr max-content;
+  margin-top: 0.5rem;
+  transition: display 0.3s ease-in-out;
+  z-index: 1;
+}
+.text__area {
+  background-color: inherit;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+}
+
+.btn__close {
+  cursor: pointer;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  transition: all 0.2s ease-in-out;
+  display: none;
+}
+
+.btn__msg {
+  aspect-ratio: 1/1;
+  bottom: 5px;
+  object-fit: cover;
+  position: absolute;
+  right: 5px;
+  transition: all 0.2s ease-in-out;
+  width: 25px;
+  visibility: hidden;
+}
+.box__person {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  column-gap: 1rem;
+}
+.box__person > img {
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  object-fit: cover;
+  width: 50px;
+  grid-column: 1/2;
+  grid-row: span 3;
+}
+.box__person > h3 {
+  font-size: 16px;
+  font-weight: 700;
+}
+.box__person > p {
+  font-size: 14px;
+  font-weight: 200;
+}
+.all-15 {
+  margin-top: 1.5rem;
+}
+/* js style */
+.show {
+  display: block;
+}
+.hiden {
+  display: none;
+}
+.activeView {
+  box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0.3rem;
+}
+
+/* ipad / tablet */
+
+@media (min-width: 765px) {
+  .box {
+    width: 600px;
+  }
+  .all-5,
+  .all-10,
+  .all-15 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
